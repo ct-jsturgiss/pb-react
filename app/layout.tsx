@@ -1,15 +1,5 @@
-import { Grid, Paper, Stack, Typography, type CssBaselineProps } from "@mui/material";
-import type { CSSProperties } from "@mui/material/styles";
+import { Paper, Typography } from "@mui/material";
 import type { PropsWithChildren } from "react";
-
-// CSS Styles
-const appMenuStack:CSSProperties = {
-    borderWidth: "0 0.1rem 0 0",
-    borderColor: "#CCC",
-    borderStyle: "solid",
-    height: "100%",
-    borderRadius: 0
-}
 
 export default function RootLayout(props:PropsWithChildren) {
 
@@ -25,7 +15,7 @@ export default function RootLayout(props:PropsWithChildren) {
             </header>
             <section className="pb d-flex flex-row flex-fill">
                 <nav className="pb app-menu">
-                    <Paper sx={appMenuStack}>
+                    <Paper>
                         
                     </Paper>
                 </nav>
