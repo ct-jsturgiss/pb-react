@@ -1,5 +1,6 @@
 import { Paper, Typography } from "@mui/material";
 import type { PropsWithChildren } from "react";
+import AppMenu from "./core/main-menu/main-menu";
 
 export default function RootLayout(props:PropsWithChildren) {
 
@@ -16,7 +17,7 @@ export default function RootLayout(props:PropsWithChildren) {
             <section className="pb d-flex flex-row flex-fill">
                 <nav className="pb app-menu">
                     <Paper>
-                        
+                        <AppMenu/>
                     </Paper>
                 </nav>
                 <section className="pb flex-fill">

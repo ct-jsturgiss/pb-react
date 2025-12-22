@@ -5,6 +5,7 @@
 
 	/* Colors */
 	--caretaker-red: #ed2426;
+    --b-solid-std: #CCC;
 	--bg-selection-light: #cccccc;
 }
 
@@ -82,17 +83,35 @@ main {
 }
 
 .pb.app-menu {
-    min-width: 3rem;
-    width: 3rem;
-    max-width: 3rem;
+    min-width: 4rem;
+    width: 4rem;
+    max-width: 4rem;
 }
 
 .pb.app-menu > div {
     height: 100%;
     border-radius: 0;
     border-style: solid;
-    border-width: 0 0.1rem 0 0;
-    border-color: #CCC;
+    border-width: 0 0.075rem 0 0;
+    border-color: var(--b-solid-std);
+    padding: 0.1rem;
+}
+
+.pb.app-menu > div.app-menu-box {
+    text-align: center;
+}
+
+.pb.app-menu button.app-menu-item {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.25rem;
+    border-style: solid;
+    border-width: 0.05rem;
+    border-color: var(--b-solid-std);
+    margin: 0.25rem;
+    padding: 0.25rem;
 }
 
 /*===== Utilities ======*/
