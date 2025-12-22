@@ -1,0 +1,108 @@
+
+:root {
+
+	--pb-app-bar-height: 5vh;
+
+	/* Colors */
+	--caretaker-red: #ed2426;
+	--bg-selection-light: #cccccc;
+}
+
+
+* {
+	box-sizing: border-box;
+	background: none;
+	background-color: none;  
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+html, 
+body,
+main {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+	display: block;
+}
+
+/*====> Classes */
+
+.color-white {
+    color: white;
+}
+
+/* Dummy root class to provide specificity needed to override other styles. */
+
+.pb * {
+	-is-pb: 1;
+}
+
+.pb.bg-caretaker-red {
+	background-color: var(--caretaker-red);
+}
+
+.pb.app-bar {
+    height: var(--pb-app-bar-height);
+    max-height: var(--pb-app-bar-height);
+    margin: 0;
+    background-color: var(--caretaker-red);
+}
+
+.pb.app-bar-img {
+    max-width: 5rem;
+    display: inline;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.pb.app-bar-img > img {
+    text-align: center;
+    max-width: 100%;
+	max-height: 100%;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.pb.app-bar-title {
+    min-width: 5rem;
+    align-content: center;
+}
+
+.pb.app-bar-title > p {
+    text-align: left;
+    max-width: 25rem;
+    font-size: 1.75rem;
+    font-weight: 500;
+}
+
+.pb.app-menu {
+    min-width: 3rem;
+    width: 3rem;
+    max-width: 3rem;
+}
+
+/*===== Utilities ======*/
+
+.pb.d-flex {
+    display: flex;
+}
+
+.pb.flex-column {
+    flex-direction: column;
+}
+
+.pb.flex-row {
+    flex-direction: row;
+}
+
+.pb.flex-fill {
+    flex: 1 1 auto;
+}
+
+/*<===== */
