@@ -17,6 +17,7 @@ import RootLayout from "./layout";
 const theme = createTheme(themeOptions);
 
 export const links: Route.LinksFunction = () => [
+  { rel: "icon", href: "/favicon256.png"},
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",

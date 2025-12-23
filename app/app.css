@@ -97,7 +97,7 @@ main {
     padding: 0.1rem;
 }
 
-.pb.app-menu > div.app-menu-box {
+.pb.app-menu div.app-menu-box {
     text-align: center;
 }
 
@@ -112,6 +112,22 @@ main {
     border-color: var(--b-solid-std);
     margin: 0.25rem;
     padding: 0.25rem;
+}
+
+div.pb.app-menu-drawer {
+    min-width: 16rem;
+    width: 16rem;
+    text-align: center;
+}
+
+div.pb.app-menu-drawer button.app-menu-drawer-item {
+    border-radius: 0.5rem;
+    /* min-width: 4rem; */
+    min-height: 3rem;
+    /* width: 4rem; */
+    height: 3rem;
+    margin: 0.25rem;
+    width: 100%;
 }
 
 /*===== Utilities ======*/
