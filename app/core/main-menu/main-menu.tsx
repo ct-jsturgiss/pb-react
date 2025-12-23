@@ -25,7 +25,8 @@ const drawerHeaderImage:CSSProperties = {
 const drawerHeaderText:CSSProperties = {
     textAlign: "center",
     margin: "1rem",
-    fontSize: "1.25rem"
+    fontSize: "1.25rem",
+    fontWeight: "500"
 }
 
 //<====
