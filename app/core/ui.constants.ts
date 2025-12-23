@@ -12,6 +12,7 @@ export const MainMenuItemKeys = {
         label: "Inventory Lookup",
         icon: "QrCodeScanner",
         showInDrawer: true,
+        route: "iv-lookup"
     } as const as AppMenuItem,
     bomManagement: {
         id: "bom-manage",
