@@ -16,6 +16,13 @@ import RootLayout from "./layout";
 // App Theme
 const theme = createTheme(themeOptions);
 
+export function meta() {
+  return [
+    { title: "Production Builder" },
+    { name: "description", content: "Caretaker - Production Builder"}
+  ];
+}
+
 export const links: Route.LinksFunction = () => [
   { rel: "shortcut icon", href: "/favicon256.ico"},
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
