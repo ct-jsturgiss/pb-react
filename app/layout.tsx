@@ -1,7 +1,7 @@
-import { Paper, Typography } from "@mui/material";
 import type { PropsWithChildren } from "react";
 import AppMainMenu from "./core/main-menu/main-menu";
 import { Link, Outlet } from "react-router";
+import { Paper, Text } from "@mantine/core";
 
 export default function RootLayout(props:PropsWithChildren) {
 
@@ -12,7 +12,7 @@ export default function RootLayout(props:PropsWithChildren) {
                     <img src="assets/png/caretaker-tree-white.png" alt="caretaker-logo-no-words"/>
                 </div>
                 <div className="pb app-bar-title">
-                    <Typography><Link className="color-white" to="/">PRODUCTION BUILDER</Link></Typography>
+                    <Text fz={"1.75rem"} fw={500}><Link className="color-white" to="/">PRODUCTION BUILDER</Link></Text>
                 </div>
             </header>
             <section className="pb d-flex flex-row flex-fill">

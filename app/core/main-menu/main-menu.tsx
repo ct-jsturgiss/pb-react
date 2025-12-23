@@ -1,11 +1,15 @@
-import { Box, Button, Divider, Drawer, Paper, Tooltip, Typography, type CSSProperties } from "@mui/material";
 import { MainMenuItemKeys, MainMenuItems } from "../utils/ui.constants";
-import * as muiIcons from "@mui/icons-material";
 import { useState, type MouseEventHandler } from "react";
 import { Link } from "react-router";
 
+// mantine
+import { Box, Button, Divider, Drawer, Text, Tooltip, type CSSProperties } from "@mantine/core";
 
 //====> Styles
+
+const drawerHeaderImageBox:CSSProperties = {
+    textAlign: "center"
+}
 
 const drawerHeaderImage:CSSProperties = {
     width: "10rem",
@@ -29,7 +33,6 @@ export default function AppMainMenu() {
     // Render
     function buildItems() {
         return MainMenuItems.map(i => {
-            const Icon = muiIcons[i.icon as keyof typeof muiIcons];
             let routeLink:string|null = i.route;
             let clickHandler:MouseEventHandler = () => {};
 
@@ -40,10 +43,10 @@ export default function AppMainMenu() {
             }
 
             return (
-                <Tooltip key={i.id} title={i.label} placement="right">
-                    <Button className="pb app-menu-item" onClick={clickHandler}>
+                <Tooltip key={i.id} label={i.label} position="right-end">
+                    <Button className="pb app-menu-item" onClick={clickHandler} variant="outline">
                         <Link to={routeLink ?? "#"}>
-                            <Icon></Icon>
+                            <i.icon></i.icon>
                         </Link>
                     </Button>
                 </Tooltip>
@@ -53,7 +56,6 @@ export default function AppMainMenu() {
 
     function buildDrawerItems() {
         return MainMenuItems.map(i => {
-            const Icon = muiIcons[i.icon as keyof typeof muiIcons];
             let routeLink:string|null = i.route;
             let clickHandler:MouseEventHandler = () => {};
 
@@ -63,11 +65,11 @@ export default function AppMainMenu() {
             }
 
             return (
-                <Tooltip key={i.id} title={i.label} placement="right">
-                    <Button className="pb app-menu-drawer-item" onClick={clickHandler}>
+                <Tooltip key={i.id} label={i.label} position="right-end">
+                    <Button className="pb app-menu-drawer-item" onClick={clickHandler} variant="subtle">
                         <Link to={routeLink ?? "#"}>
-                            <Icon></Icon>
-                            <Typography>{i.label}</Typography>
+                            <i.icon size={36}></i.icon>
+                            <Text>{i.label}</Text>
                         </Link>
                     </Button>
                 </Tooltip>
@@ -78,11 +80,13 @@ export default function AppMainMenu() {
     return (
         <Box className="pb app-menu-box">
             {buildItems()}
-            <Drawer anchor="left" variant="temporary" 
-            open={drawerIsOpen} 
+            <Drawer position="left" variant="temporary" size={"xs"}
+            opened={drawerIsOpen} 
             onClose={() => setDrawerIsOpen(false)}>
-                <Box component="img" alt="caretaker-stacked-logo" src="/assets/png/caretaker-logo-stacked.png" sx={drawerHeaderImage}/>
-                <Typography sx={drawerHeaderText}>PRODUCTION BUILDER</Typography>
+                <Box style={drawerHeaderImageBox}>
+                    <Box component="img" alt="caretaker-stacked-logo" src="/assets/png/caretaker-logo-stacked.png" style={drawerHeaderImage}/>
+                </Box>
+                <Text style={drawerHeaderText}>PRODUCTION BUILDER</Text>
                 <Divider></Divider>
                 <Box className="pb app-menu-drawer">
                     {buildDrawerItems()}

@@ -1,3 +1,12 @@
+// Mantine UI
+import "@mantine/core/styles.css";
+
+// Mantine Datatable
+import "mantine-datatable/styles.css"
+
+// App Styles
+import "./app.css";
+
 import {
   isRouteErrorResponse,
   Links,
@@ -8,10 +17,10 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
-import "./app.css";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { themeOptions } from "./app-theme";
 import RootLayout from "./layout";
+import { ColorSchemeScript, createTheme, MantineProvider, mantineHtmlProps } from "@mantine/core";
+import { themeOptions } from './app-theme';
+
 
 // App Theme
 const theme = createTheme(themeOptions);
@@ -39,10 +48,11 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" {...mantineHtmlProps}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <ColorSchemeScript />
         <Meta />
         <Links />
       </head>
@@ -58,11 +68,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
 
   return (
-    <ThemeProvider theme={theme}>
-      <RootLayout>
-        <Outlet />
+    <MantineProvider theme={theme}>
+        <RootLayout>
+          <Outlet />
       </RootLayout>
-    </ThemeProvider>
+    </MantineProvider>
   )
 }
 

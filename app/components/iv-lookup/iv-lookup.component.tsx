@@ -1,28 +1,35 @@
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
-import * as muiIcons from "@mui/icons-material"
+import { Button, Grid, TextInput, Text, Stack, Group } from "@mantine/core";
+import { IconX } from "@tabler/icons-react";
 
 export default function IvLookup() {
 
     function buildLayout() {
         return (
-            <Grid container spacing={0} columns={2} className="pb page-host" direction="row">
-                <Grid size={1} columns={2} direction="column">
-                    <Grid columns={1} direction="column">
-                        <Typography fontSize={"1.5rem"}>Inventory Lookup</Typography>
-                        <Grid className="pb d-flex flex-fill">
-                            <TextField className="pb flex-fill" label="Search" size="small" variant="filled"></TextField>
-                            <Button variant="contained">
-                                <muiIcons.Close></muiIcons.Close>
-                            </Button>
+            <Grid className="pb page-host">
+                <Grid.Col span={6}>
+                    <Stack className="pb h-100">
+                        <Text className="pb page-header">Inventory Lookup</Text>
+                        <Grid grow>
+                            <Grid.Col span={{base: 10}}>
+                                <TextInput label="Search" size="sm"></TextInput>
+                            </Grid.Col>
+                            <Grid.Col span={1} style={{alignContent: "end", maxWidth: "4.25rem"}}>
+                                <Button variant="contained">
+                                    <IconX></IconX>
+                                </Button>
+                            </Grid.Col>
+                            <Grid.Col span={1} style={{alignContent: "end", maxWidth: "4.25rem"}}>
+                                <Button variant="contained">View</Button>
+                            </Grid.Col>
                         </Grid>
-                    </Grid>
+                    </Stack>
                     <Grid>
-
+                        
                     </Grid>
-                </Grid>
-                <Grid size={1}>
+                </Grid.Col>
+                <Grid.Col span={6}>
 
-                </Grid>
+                </Grid.Col>
             </Grid>
         )
     }

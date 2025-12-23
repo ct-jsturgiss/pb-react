@@ -1,29 +1,31 @@
 import type { AppMenuItem } from "../main-menu/types/main-menu.types";
 
+import { IconMenu2, IconBarcode, IconListDetails, IconSettings } from "@tabler/icons-react";
+
 export const MainMenuItemKeys = {
     expander: {
         id: "expander",
         label: "Open Menu",
-        icon: "Menu",
+        icon: IconMenu2,
         showInDrawer: false,
     } as const as AppMenuItem,
     ivLookup: {
         id: "iv-lookup",
         label: "Inventory Lookup",
-        icon: "QrCodeScanner",
+        icon: IconBarcode,
         showInDrawer: true,
         route: "iv-lookup"
     } as const as AppMenuItem,
     bomManagement: {
         id: "bom-manage",
         label: "BOM Management",
-        icon: "ListAlt",
+        icon: IconListDetails,
         showInDrawer: true,
     } as const as AppMenuItem,
     configManagement: {
         id: "config-manage",
         label: "Configuration",
-        icon: "Settings",
+        icon: IconSettings,
         showInDrawer: true,
     } as const as AppMenuItem
 }
