@@ -4,4 +4,5 @@ export interface AppMenuItem {
     icon:string;
     showInDrawer:boolean;
     items?:AppMenuItem[];
+    route:string|null;
 }
