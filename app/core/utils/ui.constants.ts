@@ -1,4 +1,4 @@
-import type { AppMenuItem } from "./main-menu/types/main-menu.types";
+import type { AppMenuItem } from "../main-menu/types/main-menu.types";
 
 export const MainMenuItemKeys = {
     expander: {

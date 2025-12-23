@@ -1,5 +1,5 @@
 import { Box, Button, Divider, Drawer, Paper, Tooltip, Typography, type CSSProperties } from "@mui/material";
-import { MainMenuItemKeys, MainMenuItems } from "../ui.constants";
+import { MainMenuItemKeys, MainMenuItems } from "../utils/ui.constants";
 import * as muiIcons from "@mui/icons-material";
 import { useState, type MouseEventHandler } from "react";
 import { Link } from "react-router";
