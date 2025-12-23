@@ -1,6 +1,7 @@
 import { Paper, Typography } from "@mui/material";
 import type { PropsWithChildren } from "react";
 import AppMainMenu from "./core/main-menu/main-menu";
+import { Link, Outlet } from "react-router";
 
 export default function RootLayout(props:PropsWithChildren) {
 
@@ -10,8 +11,8 @@ export default function RootLayout(props:PropsWithChildren) {
                 <div className="pb app-bar-img">
                     <img src="assets/png/caretaker-tree-white.png" alt="caretaker-logo-no-words"/>
                 </div>
-                <div className="pb app-bar-title color-white">
-                    <Typography>PRODUCTION BUILDER</Typography>
+                <div className="pb app-bar-title">
+                    <Typography><Link className="color-white" to="/">PRODUCTION BUILDER</Link></Typography>
                 </div>
             </header>
             <section className="pb d-flex flex-row flex-fill">
@@ -21,7 +22,7 @@ export default function RootLayout(props:PropsWithChildren) {
                     </Paper>
                 </nav>
                 <section className="pb flex-fill">
-
+                    <Outlet/>
                 </section>
             </section>
         </main>
