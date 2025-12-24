@@ -173,7 +173,7 @@ div.pb.app-menu-drawer button.app-menu-drawer-item p {
 /* Page Helpers */
 .pb.page-host {
     height: 100%;
-    margin: 1rem;
+    padding: 1rem;
 }
 
 .pb.page-header {
@@ -204,6 +204,18 @@ div.pb.app-menu-drawer button.app-menu-drawer-item p {
 
 .pb.w-100 {
     width: 100%;
+}
+
+.pb.p-1 {
+    padding: 0.5rem;
+}
+
+.pb.p-2 {
+    padding: 1rem;
+}
+
+.pb.m-2 {
+    margin: 1rem;
 }
 
 /*<===== */
