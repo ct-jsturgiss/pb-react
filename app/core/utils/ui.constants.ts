@@ -1,4 +1,4 @@
-import type { AppMenuItem } from "../main-menu/types/main-menu.types";
+import type { AppMenuItem } from "../main-menu/main-menu.types";
 
 import { IconMenu2, IconBarcode, IconListDetails, IconSettings } from "@tabler/icons-react";
 
