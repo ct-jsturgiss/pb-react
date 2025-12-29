@@ -12,7 +12,7 @@ export type UnknownJsonRecord = Record<string, any>;
 /**
  * Represents an interface for a record with a number identifier.
  */
-export interface RecordWithId {
+export interface RecordWithId extends Record<string, unknown> {
     id:number;
 }
 
