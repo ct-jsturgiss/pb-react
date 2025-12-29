@@ -1,14 +1,12 @@
-
-// TODO: Create interfaces for records. Updates store.
-
 import type { StoreActionSetter } from "~/core/services/state-store.types";
+import type { IvLookupRecord } from "./iv-lookup.funcs";
 
 //=====> Store
 
 export interface IvLookupStoreState {
-    lookups:any[];
-    lookupsView:any[];
-    selectedLookup?:any;
+    lookups:IvLookupRecord[];
+    lookupsView:IvLookupRecord[];
+    selectedLookup?:IvLookupRecord;
     searchFilter:string|null;
 }
 
