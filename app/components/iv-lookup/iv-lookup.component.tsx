@@ -1,10 +1,37 @@
+// Mantine UI
 import { Button, Grid, TextInput, Text, Stack, Group, Card, Paper } from "@mantine/core";
+import { DataTable, type DataTableColumn } from "mantine-datatable";
+
+// Tabler Icons
 import { IconX } from "@tabler/icons-react";
-import { DataTable } from "mantine-datatable";
+
+// PB
+import { useIvLookupStore, type IvLookupRecord } from "./iv-lookup.funcs";
+
+
+// Columns
+const columns:DataTableColumn[] = [
+    {
+        accessor: "id",
+        title: "Id"
+    },
+    {
+        accessor: "itemCode",
+        title: "Item Code"
+    },
+    {
+        accessor: "itemName",
+        title: "Item Name"
+    }
+];
 
 export default function IvLookup() {
 
+    // State
+    const view:IvLookupRecord[] = useIvLookupStore((state) => state.lookupsView);
+
     function buildLayout() {
+
         return (
             <Grid grow className="pb page-host" classNames={{inner: "pb h-100"}}>
                 <Grid.Col span={6}>
@@ -26,8 +53,9 @@ export default function IvLookup() {
                         <Paper shadow="md" radius={"md"} withBorder className="pb d-flex flex-fill flex-column">
                             <DataTable
                                 className="pb m-2"
-                                columns={[{accessor: "id", title: "Test Col 1"}]}
-                                records={[{id: "Row 1"},{id: "Row 2"},{id: "Row 3"}]}
+                                key={"id"}
+                                columns={columns}
+                                records={view}
                             />
                         </Paper>
                     </Stack>
