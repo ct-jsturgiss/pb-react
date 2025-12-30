@@ -1,4 +1,4 @@
-import type { ApiRequestError, ApiRequestResult } from "../services/api/api.interfaces";
+import type { ApiRequestError, ApiRequestResult } from "../services/api/api.types";
 
 export const ObjConst = {
     apiResponse: {

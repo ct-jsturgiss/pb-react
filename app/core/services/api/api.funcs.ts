@@ -1,5 +1,5 @@
 import { ObjConst } from "~/core/utils/api.constants";
-import { type ApiRequestResult, type ApiResultError } from "./api.interfaces";
+import { type ApiRequestResult, type ApiResultError } from "./api.types";
 import { RecordChangeKind } from "./api.enums";
 
 /**
