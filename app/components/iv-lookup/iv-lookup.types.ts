@@ -11,6 +11,7 @@ export interface IvLookupStoreState {
 }
 
 export type IvLookupStoreActions = {
+    setSearchFilter: StoreActionSetter<IvLookupStoreState["searchFilter"]>;
     setLookups: StoreActionSetter<IvLookupStoreState["lookups"]>;
     setLookupsView: StoreActionSetter<IvLookupStoreState["lookupsView"]>;
 }
@@ -18,3 +19,7 @@ export type IvLookupStoreActions = {
 export type IvLookupStore = IvLookupStoreState & IvLookupStoreActions;
 
 //<=====
+
+export interface IvLookupProps {
+    isLoading?:boolean;
+}

@@ -7,11 +7,12 @@ import { createRecordWithId } from "~/core/data.funcs";
 /**
  * Creates and initializes a state store for inventory lookup.
  */
-export const useIvLookupStore = create<IvLookupStore>((setState) => ({
+export const useIvLookupStore = create<IvLookupStore>(setState => ({
     lookups: [],
     lookupsView: [],
-    selectedLookup: null,
+    selectedLookup: undefined,
     searchFilter: null,
+    setSearchFilter: (newValue) => setState({searchFilter: getOrCall(newValue)}),
     setLookups: (newValue) => {
         const newStateValue = getOrCall(newValue);
         setState({
