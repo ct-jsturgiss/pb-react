@@ -20,10 +20,20 @@ import type { Route } from "./+types/root";
 import RootLayout from "./layout";
 import { ColorSchemeScript, createTheme, MantineProvider, mantineHtmlProps } from "@mantine/core";
 import { themeOptions } from './app-theme';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 
 // App Theme
 const theme = createTheme(themeOptions);
+
+// Api/Query Provider
+const queryService = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false
+    }
+  }
+});
 
 export function meta() {
   return [
@@ -57,7 +67,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <QueryClientProvider client={queryService}>
+          {children}
+        </QueryClientProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
