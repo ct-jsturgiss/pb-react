@@ -15,7 +15,7 @@ export default function RootLayout(props:PropsWithChildren) {
                     <Text fz={"1.75rem"} fw={500}><Link className="color-white" to="/">PRODUCTION BUILDER</Link></Text>
                 </div>
             </header>
-            <section className="pb d-flex flex-row flex-fill">
+            <section className="pb d-flex flex-row flex-fill min-h-0">
                 <nav className="pb app-menu">
                     <Paper>
                         <AppMainMenu/>
