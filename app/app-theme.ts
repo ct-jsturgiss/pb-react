@@ -1,6 +1,8 @@
 import { generateColors } from "@mantine/colors-generator";
 import type { MantineThemeOverride } from "@mantine/core";
 
+export const caretaker_red = "#ED2426";
+
 export const themeOptions: MantineThemeOverride = {
   // palette: {
   //   mode: 'light',
@@ -22,7 +24,7 @@ export const themeOptions: MantineThemeOverride = {
     xl: "2rem"
   },
   colors: {
-    "red": generateColors("#ED2426"),
+    "red": generateColors(caretaker_red),
   },
   primaryColor: "red",
   fontFamily: 'Montserrat',
