@@ -4,6 +4,8 @@
 
 	/* Colors */
 	--caretaker-red: #ed2426;
+    --caretaker-red-60: #ed242690;
+    --caretaker-red-40: #ed242660;
     --b-solid-std: #CCC;
 	--bg-selection-light: #cccccc;
 
@@ -180,6 +182,18 @@ div.pb.app-menu-drawer button.app-menu-drawer-item p {
 
 .pb.page-header {
     font-size: 1.5rem;
+}
+
+/*===== Record Table =====*/
+
+.pb.record-table-row-selected {
+    background-color: var(--caretaker-red-60);
+    color: white;
+}
+
+div.pb.mantine-datatable tbody tr.pb.record-table-row-selected:hover {
+    background-color: var(--caretaker-red-40);
+    color: white;
 }
 
 /*===== Utilities ======*/
