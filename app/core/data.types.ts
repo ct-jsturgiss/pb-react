@@ -1,5 +1,7 @@
 //=====> Types
 
+export type Action = () => void;
+
 /**
  * Represents a generic object type with string indexable properties.
  */
@@ -28,6 +30,30 @@ export interface FromApiJsonAdapter<T> {
  */
 export interface ToApiDtoAdapter<TInput,TOutput> {
     toDto(item:TInput):TOutput;
+}
+
+/**
+ * Represents an interface for a record that contains view state properties.
+ */
+export interface RecordView {
+    viewState:RecordViewState;
+}
+
+/**
+ * Represents an interface for record view state properties.
+ */
+export interface RecordViewState {
+    isSelected:boolean;
+}
+
+export interface SearchChain<T> {
+    lastPattern:string;
+    chainLinks:SearchChainLink<T>[];
+}
+
+export interface SearchChainLink<T> {
+    pattern:string;
+    items:T[];
 }
 
 //<=====
