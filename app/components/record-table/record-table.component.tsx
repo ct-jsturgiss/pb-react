@@ -14,13 +14,13 @@ export function RecordTable(props:RecordTableProps):React.ReactNode {
     // Props
     const { 
         recordKey, columns, recordSource, pageSize, isLoading,
-        selectionMode, onRowClicked, onRowDoubleClicked 
+        selectionMode, onRowClicked, onRowDoubleClicked, onRecordSelectionChanged
     } = props;
     
     // Local State
     const activePageSize = pageSize ?? defaultPageSize;
     const [page, setPage] = useState<number>(1);
-    const [paginatedView, setPaginatedView] = useState<Record<string, unknown>[]>([]);
+    const [paginatedView, setPaginatedView] = useState<RecordView[]>([]);
     const [selectedRecords, setSelectedRecords] = useState<RecordView[]>([]);
 
     // Effects
@@ -29,7 +29,7 @@ export function RecordTable(props:RecordTableProps):React.ReactNode {
     }, [page, recordSource]);
 
     // Helpers
-    function getPageSlice(page:number) {
+    function getPageSlice(page:number):RecordView[] {
         const from = (page - 1) * activePageSize;
         const to = from + activePageSize;
         return recordSource.slice(from, to);
@@ -65,6 +65,9 @@ export function RecordTable(props:RecordTableProps):React.ReactNode {
             }
         }
         setSelectedRecords([...netSelected, ...selected]);
+        onRecordSelectionChanged?.({
+            selection: selectedRecords
+        });
     }
 
     function handleRowClick(row:RowClickArgs) {
