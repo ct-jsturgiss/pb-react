@@ -15,6 +15,7 @@ import type { IvLookupProps } from "./iv-lookup.types";
 import type { SearchEvent } from "../search-bar/search-bar.types";
 import { SearchEventKind } from "../search-bar/search-bar.enums";
 import { RecordSelectionMode } from "../record-table/record-table.enums";
+import type { RecordSelectionArgs } from "../record-table/record-table.types";
 
 // Constants
 const pageSize:number = 25;
@@ -39,7 +40,9 @@ export default function IvLookup(props:IvLookupProps) {
     // State
     const searchFilter = useIvLookupStore(state => state.searchFilter);
     const setSearch = useIvLookupStore(state => state.setSearchFilter);
-    const view:IvLookupRecord[] = useIvLookupStore(state => state.lookupsView);
+    const view = useIvLookupStore(state => state.lookupsView);
+    const selectedLookup = useIvLookupStore(state => state.selectedLookup);
+    const setSelectedLookup = useIvLookupStore(state => state.setSelectedLookup);
 
     function clearSearch() {
         if(onTextSearchEvent) {
@@ -48,6 +51,15 @@ export default function IvLookup(props:IvLookupProps) {
                 oldValue: searchFilter,
                 newValue: ""
             } as SearchEvent);
+        }
+    }
+
+    function handleOnRowSelection(args:RecordSelectionArgs) {
+        const first = args.selection[0];
+        if(first) {
+            setSelectedLookup(first as IvLookupRecord);
+        } else {
+            setSelectedLookup(undefined);
         }
     }
 
@@ -74,11 +86,12 @@ export default function IvLookup(props:IvLookupProps) {
                             recordSource={view}
                             isLoading={isLoading ?? false}
                             selectionMode={RecordSelectionMode.Single}
+                            onRecordSelectionChanged={handleOnRowSelection}
                         />
                     </Stack>
                 </Grid.Col>
                 <Grid.Col span={6}>
-
+                    
                 </Grid.Col>
             </Grid>
         )
