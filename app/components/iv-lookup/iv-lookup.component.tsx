@@ -12,16 +12,15 @@ import { useIvLookupStore, type IvLookupRecord } from "./iv-lookup.funcs";
 import { SearchBar } from "../search-bar/search-bar.component";
 import { RecordTable } from "../record-table/record-table.component";
 import type { IvLookupProps } from "./iv-lookup.types";
+import type { SearchEvent } from "../search-bar/search-bar.types";
+import { SearchEventKind } from "../search-bar/search-bar.enums";
+import { RecordSelectionMode } from "../record-table/record-table.enums";
 
 // Constants
 const pageSize:number = 25;
 
 // Columns
 const columns:DataTableColumn[] = [
-    {
-        accessor: "id",
-        title: "Id"
-    },
     {
         accessor: "itemCode",
         title: "Item Code"
@@ -35,15 +34,21 @@ const columns:DataTableColumn[] = [
 export default function IvLookup(props:IvLookupProps) {
 
     // Props
-    const { isLoading } = props;
+    const { isLoading, onTextSearchEvent } = props;
 
     // State
+    const searchFilter = useIvLookupStore(state => state.searchFilter);
     const setSearch = useIvLookupStore(state => state.setSearchFilter);
     const view:IvLookupRecord[] = useIvLookupStore(state => state.lookupsView);
 
-    function handleSearchChanged(value?:string) {
-        const v = value ?? null;
-        setSearch(v);
+    function clearSearch() {
+        if(onTextSearchEvent) {
+            onTextSearchEvent({
+                eventType: SearchEventKind.Clear,
+                oldValue: searchFilter,
+                newValue: ""
+            } as SearchEvent);
+        }
     }
 
     function buildLayout() {
@@ -56,8 +61,9 @@ export default function IvLookup(props:IvLookupProps) {
                         <SearchBar 
                             label="Search" 
                             placeholder="Enter search criteria..." 
-                            onTextChanged={(v) => handleSearchChanged(v)}>
-                            <Button variant="contained" style={{maxWidth: "4.5rem"}} className="pb mx-1">
+                            onSearchEvent={onTextSearchEvent}
+                            value={searchFilter}>
+                            <Button variant="contained" style={{maxWidth: "4.5rem"}} className="pb mx-1" onClick={() => clearSearch()}>
                                 <IconX></IconX>
                             </Button>
                             <Button variant="contained">View</Button>
@@ -67,6 +73,7 @@ export default function IvLookup(props:IvLookupProps) {
                             columns={columns}
                             recordSource={view}
                             isLoading={isLoading ?? false}
+                            selectionMode={RecordSelectionMode.Single}
                         />
                     </Stack>
                 </Grid.Col>

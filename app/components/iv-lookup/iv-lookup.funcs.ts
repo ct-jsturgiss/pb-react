@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import type { IvLookupStore } from "./iv-lookup.types";
 import { getOrCall } from "~/core/services/state-store.funcs";
-import { type RecordWithId } from "~/core/data.types";
+import { type RecordView, type RecordViewState, type RecordWithId } from "~/core/data.types";
 import { createRecordWithId } from "~/core/data.funcs";
 
 /**
@@ -10,8 +10,6 @@ import { createRecordWithId } from "~/core/data.funcs";
 export const useIvLookupStore = create<IvLookupStore>(setState => ({
     lookups: [],
     lookupsView: [],
-    selectedLookup: undefined,
-    searchFilter: null,
     setSearchFilter: (newValue) => setState({searchFilter: getOrCall(newValue)}),
     setLookups: (newValue) => {
         const newStateValue = getOrCall(newValue);
@@ -33,7 +31,7 @@ export const useIvLookupStore = create<IvLookupStore>(setState => ({
 /**
  * Represents an inventory lookup record.
  */
-export interface IvLookupRecord extends RecordWithId {
+export interface IvLookupRecord extends RecordWithId, RecordView {
     itemCode:string;
     itemName:string;
     pathId:string|null;
@@ -57,7 +55,10 @@ export const createIvLookupRecord = (id:number|null = null):IvLookupRecord => {
         supplierItemCode: null,
         manufacturerName: null,
         manufacturerDescription: null,
-        listName: null
+        listName: null,
+        viewState: {
+            isSelected: false,
+        }
     }
 
     return rec as IvLookupRecord;

@@ -1,7 +1,7 @@
 /**
  * Represents a type for a generic handler function that consumes the current value and outputs a new one of the provided type.
  */
-export type StoreActionSetFunc<T> = (currentValue:T) => T;
+export type StoreActionSetFunc<T> = (currentValue?:T) => T|undefined;
 
 /**
  * Represents the input type for a generic store action.
