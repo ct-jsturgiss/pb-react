@@ -35,7 +35,7 @@ export interface ToApiDtoAdapter<TInput,TOutput> {
 /**
  * Represents an interface for a record that contains view state properties.
  */
-export interface RecordView {
+export interface RecordView extends Record<string, unknown> {
     viewState:RecordViewState;
 }
 
