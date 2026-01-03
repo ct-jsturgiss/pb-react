@@ -7,7 +7,7 @@ import type { SearchEvent } from "../search-bar/search-bar.types";
 export interface IvLookupStoreState {
     lookups:IvLookupRecord[];
     lookupsView:IvLookupRecord[];
-    selectedLookup?:IvLookupRecord;
+    selectedLookup?:IvLookupRecord|null;
     searchFilter?:string;
 }
 
@@ -15,6 +15,7 @@ export type IvLookupStoreActions = {
     setSearchFilter: StoreActionSetter<IvLookupStoreState["searchFilter"]>;
     setLookups: StoreActionSetter<IvLookupStoreState["lookups"]>;
     setLookupsView: StoreActionSetter<IvLookupStoreState["lookupsView"]>;
+    setSelectedLookup: StoreActionSetter<IvLookupStoreState["selectedLookup"]>;
 }
 
 export type IvLookupStore = IvLookupStoreState & IvLookupStoreActions;
