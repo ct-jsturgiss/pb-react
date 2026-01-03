@@ -24,6 +24,7 @@ export const useIvLookupStore = create<IvLookupStore>(setState => ({
             lookupsView: newStateValue
         });
     },
+    setSelectedLookup: (newValue) => setState({selectedLookup: getOrCall(newValue)}),
 }));
 
 //=====> Records
