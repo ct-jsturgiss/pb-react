@@ -64,9 +64,10 @@ export function RecordTable(props:RecordTableProps):React.ReactNode {
                 }
             }
         }
-        setSelectedRecords([...netSelected, ...selected]);
+        const newSelection = [...netSelected, ...selected].filter(r => r.viewState.isSelected);
+        setSelectedRecords(newSelection);
         onRecordSelectionChanged?.({
-            selection: selectedRecords
+            selection: newSelection
         });
     }
 
