@@ -73,7 +73,7 @@ export default function IvLookup(props:IvLookupProps) {
 
         return (
             <Grid grow className="pb page-host" classNames={{inner: "pb h-100 min-h-100"}}>
-                <Grid.Col span={12} className="pb grid-column p-0 ps-1">
+                <Grid.Col span={12} className="pb grid-column p-0 ps-2">
                     <Text className="pb page-header">Inventory Lookup</Text>
                 </Grid.Col>
                 <Grid.Col span={6} className="pb grid-column">
@@ -83,7 +83,7 @@ export default function IvLookup(props:IvLookupProps) {
                             placeholder="Enter search criteria..." 
                             onSearchEvent={onTextSearchEvent}
                             value={searchFilter}>
-                            <Button variant="contained" style={{maxWidth: "4.5rem"}} className="pb mx-1" onClick={() => clearSearch()}>
+                            <Button variant="contained" style={{maxWidth: "4.5rem"}} className="pb mx-2" onClick={() => clearSearch()}>
                                 <IconX></IconX>
                             </Button>
                             <Button variant="contained">View</Button>
@@ -99,26 +99,26 @@ export default function IvLookup(props:IvLookupProps) {
                     </Stack>
                 </Grid.Col>
                 <Grid.Col span={6}>
-                    <Paper shadow="md" radius="md" withBorder className="pb p-1 mt-3 pb-3">
+                    <Paper shadow="md" radius="md" withBorder className="pb p-2 mt-4 pb-4">
                         <Grid>
                             <Grid.Col>
                                 <Text fz={18}>{selectedLookup?.itemName ?? "--No Selection--"}</Text>
                             </Grid.Col>
                             <Grid.Col className="pb py-0">
                                 <Text span fw={itemPropWeight} fz={itemPropFontSize}>Item Code:</Text>
-                                <Text span className="pb mx-1" fz={itemPropFontSize}>{selectedLookup?.itemCode}</Text>
+                                <Text span className="pb mx-2" fz={itemPropFontSize}>{selectedLookup?.itemCode}</Text>
                             </Grid.Col>
                             <Grid.Col className="pb py-0">
                                 <Text span fw={itemPropWeight} fz={itemPropFontSize}>Supplier Code:</Text>
-                                <Text span className="pb mx-1" fz={itemPropFontSize}>{selectedLookup?.supplierItemCode}</Text>
+                                <Text span className="pb mx-2" fz={itemPropFontSize}>{selectedLookup?.supplierItemCode}</Text>
                             </Grid.Col>
                             <Grid.Col className="pb py-0">
                                 <Text span fw={itemPropWeight} fz={itemPropFontSize}>Manufacturer:</Text>
-                                <Text span className="pb mx-1" fz={itemPropFontSize}>{selectedLookup?.manufacturerName}</Text>
+                                <Text span className="pb mx-2" fz={itemPropFontSize}>{selectedLookup?.manufacturerName}</Text>
                             </Grid.Col>
                             <Grid.Col className="pb py-0">
                                 <Text span fw={itemPropWeight} fz={itemPropFontSize}>Mfr. Description:</Text>
-                                <Text span className="pb mx-1" fz={itemPropFontSize}>{selectedLookup?.manufacturerDescription}</Text>
+                                <Text span className="pb mx-2" fz={itemPropFontSize}>{selectedLookup?.manufacturerDescription}</Text>
                             </Grid.Col>
                         </Grid>
                     </Paper>

@@ -9,6 +9,10 @@
     --b-solid-std: #CCC;
 	--bg-selection-light: #cccccc;
 
+    /* Sizing */
+    --pb-base-padding: 0.25rem;
+    --pb-base-margin: 0.25rem;
+
 }
 
 
@@ -227,19 +231,27 @@ div.pb.mantine-datatable tbody tr.pb.record-table-row-selected:hover {
 }
 
 .pb.p-1 {
-    padding: 0.5rem;
+    padding: calc(var(--pb-base-padding) * 1);
 }
 
 .pb.p-2 {
-    padding: 1rem;
+    padding: calc(var(--pb-base-padding) * 2);
+}
+
+.pb.p-3 {
+    padding: calc(var(--pb-base-padding) * 4);
 }
 
 .pb.ps-1 {
-    padding-left: 0.5rem;
+    padding-left: calc(var(--pb-base-padding) * 1);
 }
 
 .pb.ps-2 {
-    padding-left: 1rem;
+    padding-left: calc(var(--pb-base-padding) * 2);
+}
+
+.pb.ps-3 {
+    padding-left: calc(var(--pb-base-padding) * 4);
 }
 
 .pb.py-0 {
@@ -248,39 +260,57 @@ div.pb.mantine-datatable tbody tr.pb.record-table-row-selected:hover {
 }
 
 .pb.py-1 {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: calc(var(--pb-base-padding) * 1);
+    padding-bottom: calc(var(--pb-base-padding) * 1);
 }
 
-.pb.py-05 {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
+.pb.py-2 {
+    padding-top: calc(var(--pb-base-padding) * 2);
+    padding-bottom: calc(var(--pb-base-padding) * 2);
+}
+
+.pb.py-3 {
+    padding-top: calc(var(--pb-base-padding) * 4);
+    padding-bottom: calc(var(--pb-base-padding) * 4);
 }
 
 .pb.pb-3 {
-    padding-bottom: 1rem;
+    padding-bottom: calc(var(--pb-base-padding) * 4);
 }
 
 .pb.mx-1 {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin-left: calc(var(--pb-base-margin) * 1);
+    margin-right: calc(var(--pb-base-margin) * 1);
 }
 
 .pb.mx-2 {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: calc(var(--pb-base-margin) * 2);
+    margin-right: calc(var(--pb-base-margin) * 2);
+}
+
+.pb.mx-3 {
+    margin-left: calc(var(--pb-base-margin) * 4);
+    margin-right: calc(var(--pb-base-margin) * 4);
 }
 
 .pb.m-2 {
-    margin: 1rem;
+    margin: calc(var(--pb-base-margin) * 2);
+}
+
+.pb.m-3 {
+    margin: calc(var(--pb-base-margin) * 4);
 }
 
 .pb.mt-2 {
-    margin-top: 1rem;
+    margin-top: calc(var(--pb-base-margin) * 2);
 }
 
 .pb.mt-3 {
-    margin-top: 1.5rem;
+    margin-top: calc(var(--pb-base-margin) * 4);
+}
+
+.pb.mt-4 {
+    margin-top: calc(var(--pb-base-margin) * 6);
 }
 
 .pb.min-h-0 {

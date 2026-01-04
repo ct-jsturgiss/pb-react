@@ -84,7 +84,7 @@ export function RecordTable(props:RecordTableProps):React.ReactNode {
         return (
             <Paper shadow="md" radius={"md"} withBorder className="pb d-flex flex-fill flex-column min-h-0">
                 <DataTable
-                    className="pb m-2"
+                    className="pb m-3"
                     key={recordKey}
                     columns={columns}
                     records={paginatedView}
