@@ -222,12 +222,43 @@ div.pb.mantine-datatable tbody tr.pb.record-table-row-selected:hover {
     width: 100%;
 }
 
+.pb.p-0 {
+    padding: 0;
+}
+
 .pb.p-1 {
     padding: 0.5rem;
 }
 
 .pb.p-2 {
     padding: 1rem;
+}
+
+.pb.ps-1 {
+    padding-left: 0.5rem;
+}
+
+.pb.ps-2 {
+    padding-left: 1rem;
+}
+
+.pb.py-0 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.pb.py-1 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.pb.py-05 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.pb.pb-3 {
+    padding-bottom: 1rem;
 }
 
 .pb.mx-1 {
@@ -242,6 +273,14 @@ div.pb.mantine-datatable tbody tr.pb.record-table-row-selected:hover {
 
 .pb.m-2 {
     margin: 1rem;
+}
+
+.pb.mt-2 {
+    margin-top: 1rem;
+}
+
+.pb.mt-3 {
+    margin-top: 1.5rem;
 }
 
 .pb.min-h-0 {
