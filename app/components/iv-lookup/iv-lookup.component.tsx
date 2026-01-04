@@ -1,7 +1,7 @@
 "use client";
 
 // Mantine UI
-import { Button, Grid, Text, Stack } from "@mantine/core";
+import { Button, Grid, Text, Stack, Paper } from "@mantine/core";
 import { type DataTableColumn } from "mantine-datatable";
 
 // Tabler Icons
@@ -19,6 +19,8 @@ import type { RecordSelectionArgs } from "../record-table/record-table.types";
 
 // Constants
 const pageSize:number = 25;
+const itemPropWeight:number = 600;
+const itemPropFontSize:number = 14;
 
 // Columns
 const columns:DataTableColumn[] = [
@@ -29,6 +31,10 @@ const columns:DataTableColumn[] = [
     {
         accessor: "itemName",
         title: "Item Name"
+    },
+    {
+        accessor: "supplierItemCode",
+        title: "Suppliers Item Code"
     }
 ];
 
@@ -67,9 +73,11 @@ export default function IvLookup(props:IvLookupProps) {
 
         return (
             <Grid grow className="pb page-host" classNames={{inner: "pb h-100 min-h-100"}}>
+                <Grid.Col span={12} className="pb grid-column p-0 ps-1">
+                    <Text className="pb page-header">Inventory Lookup</Text>
+                </Grid.Col>
                 <Grid.Col span={6} className="pb grid-column">
                     <Stack className="pb h-100 min-h-100">
-                        <Text className="pb page-header">Inventory Lookup</Text>
                         <SearchBar 
                             label="Search" 
                             placeholder="Enter search criteria..." 
@@ -91,7 +99,29 @@ export default function IvLookup(props:IvLookupProps) {
                     </Stack>
                 </Grid.Col>
                 <Grid.Col span={6}>
-                    
+                    <Paper shadow="md" radius="md" withBorder className="pb p-1 mt-3 pb-3">
+                        <Grid>
+                            <Grid.Col>
+                                <Text fz={18}>{selectedLookup?.itemName ?? "--No Selection--"}</Text>
+                            </Grid.Col>
+                            <Grid.Col className="pb py-0">
+                                <Text span fw={itemPropWeight} fz={itemPropFontSize}>Item Code:</Text>
+                                <Text span className="pb mx-1" fz={itemPropFontSize}>{selectedLookup?.itemCode}</Text>
+                            </Grid.Col>
+                            <Grid.Col className="pb py-0">
+                                <Text span fw={itemPropWeight} fz={itemPropFontSize}>Supplier Code:</Text>
+                                <Text span className="pb mx-1" fz={itemPropFontSize}>{selectedLookup?.supplierItemCode}</Text>
+                            </Grid.Col>
+                            <Grid.Col className="pb py-0">
+                                <Text span fw={itemPropWeight} fz={itemPropFontSize}>Manufacturer:</Text>
+                                <Text span className="pb mx-1" fz={itemPropFontSize}>{selectedLookup?.manufacturerName}</Text>
+                            </Grid.Col>
+                            <Grid.Col className="pb py-0">
+                                <Text span fw={itemPropWeight} fz={itemPropFontSize}>Mfr. Description:</Text>
+                                <Text span className="pb mx-1" fz={itemPropFontSize}>{selectedLookup?.manufacturerDescription}</Text>
+                            </Grid.Col>
+                        </Grid>
+                    </Paper>
                 </Grid.Col>
             </Grid>
         )
